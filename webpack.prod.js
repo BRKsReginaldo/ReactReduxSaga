@@ -11,7 +11,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
 
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    // new CleanWebpackPlugin(['dist']),
     new UglifyJSPlugin(),
     new OptimizeCSSAssetsPlugin({}),
     new webpack.NamedModulesPlugin(),

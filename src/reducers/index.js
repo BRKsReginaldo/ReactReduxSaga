@@ -1,6 +1,6 @@
 import {combineReducers} from "redux"
-import count from './count'
+import fields from './fields'
 
 export default combineReducers({
-  count
+  fields
 })

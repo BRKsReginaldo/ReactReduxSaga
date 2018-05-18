@@ -1,8 +1,8 @@
 import {all} from 'redux-saga/effects'
-import count from "./count"
+import fields from "./fields"
 
 export default function* () {
   yield all([
-    count()
+    fields()
   ])
 }

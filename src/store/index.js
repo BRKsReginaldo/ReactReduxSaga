@@ -5,8 +5,10 @@ import sagas from '../sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
+const enhanceStore = window.hasOwnProperty('__REDUX_DEVTOOLS_EXTENSION_COMPOSE__') ? window.window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
+
 export const configureStore = () => {
-  return createStore(reducers, compose(
+  return createStore(reducers, enhanceStore(
     applyMiddleware(sagaMiddleware)
   ))
 }

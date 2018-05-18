@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
 const dotenv = require('dotenv')
+const config = require('./config')
 
 dotenv.config()
 
@@ -38,16 +39,20 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: 'style-loader'
+          },
           {
             loader: 'css-loader'
-          }
+          },
         ]
       },
       {
         test: /\.styl$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: 'style-loader',
+          },
           {
             loader: 'css-loader'
           },
@@ -101,11 +106,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css?v=[hash:6]',
-    }),
     new webpack.DefinePlugin({
-      config: JSON.stringify(process.env)
+      config: JSON.stringify(config)
     })
   ]
 }

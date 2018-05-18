@@ -1,0 +1,6 @@
+{
+  "url": {
+    "production": "https://sistemabrindeiros.com.br",
+    "development": "http://localhost:8000"
+  }
+}
